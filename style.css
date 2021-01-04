@@ -1,0 +1,37 @@
+main {
+    display: flex;
+}
+
+.left {
+    height: 100vh;
+    width: 33%;
+    position: relative;
+    /* border: 5px pink dotted; */
+    margin: 0 auto;
+}
+.middle {
+    width: 34%;
+    /* border: 5px blue dotted; */
+}
+.right {
+    width: 33%;
+    /* border: 5px red dotted; */
+}
+.big-cookie-container {
+    margin: 0 auto;
+}
+
+.big-cookie {
+    width: 250px;
+    margin: 0 auto;
+    height: 250px;
+    background: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-image: url(./img/bitCookie.png);
+}
+.big-cookie:hover {
+    height: 255px;
+    width: 255px;
+}

@@ -1,0 +1,67 @@
+<!-- https://codepen.io/goodkatz/pen/LYPGxQz?editors=1100 -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="waves.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <!--Hey! This is the original version
+of Simple CSS Waves-->
+
+    <main>
+        <section class="left game-container">
+            <!--Waves Container-->
+            <div class="waves-container">
+                <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                    <defs>
+                        <path id="gentle-wave"
+                            d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g class="parallax">
+                        <use xlink:href="#gentle-wave" x="48" y="0" class="waveParallax" />
+                        <use xlink:href="#gentle-wave" x="48" y="3" class="waveParallax" />
+                        <use xlink:href="#gentle-wave" x="48" y="5" class="waveParallax" />
+                        <use xlink:href="#gentle-wave" x="48" y="7" class="waveParallax" />
+                    </g>
+                </svg>
+            </div>
+
+            <!--Waves end-->
+            <div class="counter border p-5">loading...</div>
+
+            <div class="big-cookie" class="col-md-10 card" id='bigCookie'>
+                <!-- <img class="w-50" src="./img/bitCookie.png" alt=""> -->
+            </div>
+        </section>
+
+        <section class="middle display bg-secondary " $enable-gradient=true>
+        </section>
+
+        <section class="right upgrades bg-dark">
+            <div class="grid  d-flex flex-column upgrades__buttons">
+
+            </div>
+        </section>
+    </main>
+
+    <script src="./decorate.js"></script>
+    <script type='module' src="./main.js"></script>
+    <script type="module" src="./display.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
