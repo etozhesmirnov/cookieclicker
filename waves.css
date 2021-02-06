@@ -2,15 +2,20 @@
 
 body {
   margin: 0;
+  background-image: url('./img/bgKitchen.jpg');
+  background-size: contain;
 }
 
 .game-container {
   position: relative;
   text-align: center;
-  background: linear-gradient(60deg, rgb(136, 9, 136) 0%, rgb(255, 0, 0) 500%);
+  /* background-image: url('https://hips.hearstapps.com/edc.h-cdn.co/assets/16/39/djds.jpg'); */
+  /* background-size: 100%; */
+  /* background-size: cover; */
+  /* background: linear-gradient(60deg, rgb(136, 9, 136) 0%, rgb(255, 0, 0) 500%); */
   color: white;
 }
-
+ 
 .waves {
   position: absolute;
   bottom: 0;

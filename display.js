@@ -1,4 +1,5 @@
 // import * as workers from './workers.js';
+// var fs = require('fs');
 
 function renderWorkersDisplay() {
     let display = document.querySelector('.display')
@@ -6,6 +7,7 @@ function renderWorkersDisplay() {
 
     // clean the container
     display.innerHTML = ''
+    
     workersList.forEach((worker, index) => {
         if (index > 0) {
             let item = document.createElement('div')
@@ -26,7 +28,7 @@ function renderWorkersDisplay() {
 
             function renderPngs(pngPath, numberOf) {
                 // do not render waste
-                numberOf > 20 ? numberOf = 20 : null
+                numberOf > 15 ? numberOf = 15 : null
 
                 for (let i = 0; i < numberOf; i++) {
                     let img = document.createElement('img')
@@ -35,26 +37,14 @@ function renderWorkersDisplay() {
                     img.style.left = i * 30 + 'px'
                     img.style.bottom = '0'
                     img.style.height = '50px'
-                    console.log(worker.numberOf)
+                    console.log(JSON.parse(localStorage.getItem('workers'))[index].numberOf)
                     item.appendChild(img)
                 }
             }
-            if (worker.type == 'click') {
-                renderPngs('cursor', worker.numberOf)
-            }
-            if (worker.type == 'grandmother') {
-                renderPngs('grand', worker.numberOf)
-            }
-            if (worker.type == 'fermer') {
-                renderPngs('fermer', worker.numberOf)
-            }
-            if (worker.type == 'factory') {
-                renderPngs('factory', worker.numberOf)
-            }
+            renderPngs(worker.type, worker.numberOf)
 
         }
     });
-    console.log('refreshed')
 }
 
 

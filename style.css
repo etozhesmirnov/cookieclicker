@@ -7,14 +7,17 @@ main {
     width: 33%;
     position: relative;
     /* border: 5px pink dotted; */
+    background-color: rgba(29, 29, 29, 0.9);
     margin: 0 auto;
 }
 .middle {
     width: 34%;
+    background-color: rgba(70, 70, 70, 0.9);
     /* border: 5px blue dotted; */
 }
 .right {
     width: 33%;
+    background-color: rgba(51, 51, 51, 0.9);
     /* border: 5px red dotted; */
 }
 .big-cookie-container {
@@ -29,9 +32,14 @@ main {
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
-    background-image: url(./img/bitCookie.png);
+    background-image: url(./img/bigCookie.png);
 }
 .big-cookie:hover {
     height: 255px;
     width: 255px;
+}
+
+.newGame {
+    position: fixed;
+    bottom: 0;
 }

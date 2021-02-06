@@ -16,8 +16,8 @@ class Worker {
 let DefaultWorkers = []
 const workerTypes = [
     'mouseClick',
-    'click',
-    'grandmother',
+    'cursor',
+    'grand',
     'fermer',
     'factory'
 ]
@@ -39,16 +39,29 @@ document.addEventListener("DOMContentLoaded", () => {
     checkWorkersAvalible()
 });
 
-let workers = JSON.parse(JSON.stringify(DefaultWorkers))
-console.log(workers)
-
 function getCookiesGiveTotal(worker) {
     return worker.multiply * worker.numberOf * worker.cookiesGive
 }
 
-workers.forEach((worker, index) => {
+function saveLocalCookies(value) {
+    value = Number(value)
+    localStorage.setItem('cookie', value)
+}
 
-    // bigCookie
+function saveLocalWorkers(workers) {
+    workers = JSON.stringify(workers)
+    localStorage.setItem('workers', workers)
+    console.log('localWorkers saved')
+
+}
+let workers = JSON.parse(localStorage.getItem('workers'))
+
+workers.forEach((worker, index) => {
+    let newPrice;
+    // newPrice = Math.round(worker.price / 100 * 150);
+
+
+    // if bigCookie
     if (index == 0) {
         bigCookie.addEventListener('click', function () {
             // add and display new cookies instant if mouse click 
@@ -60,37 +73,42 @@ workers.forEach((worker, index) => {
         })
         bigCookie.classList.add('workersBtn')
     }
-    // not bigCookie
+    // if not bigCookie
     else {
-
         let btn = document.createElement('button')
+        btn.innerHTML = worker.type + ' = ' + JSON.parse(localStorage.getItem('workers'))[index].price
         btn.addEventListener('click', function () {
-            checkWorkersAvalible()
-
+            checkWorkersAvalible(index)
             let workers = JSON.parse(localStorage.getItem('workers'))
+            // console.log('workers = ' + workers)
             let cookies = localStorage.getItem('cookie')
-            let newPrice = worker.price / 100 * 150
+            newPrice = worker.price / 100 * 150
             newPrice = Math.round(newPrice);
-
+            worker.price = newPrice
             if (cookies > newPrice) {
-                worker.numberOf++
-                let newCookies = cookies - Number(newPrice)
-                localStorage.setItem('cookie', newCookies)
+                // enough cookie
+                workers[index].numberOf++
                 workers[index].price = newPrice
-                workers = JSON.stringify(workers)
-                localStorage.setItem('workers', workers)
+                console.log(workers[index].numberOf)
+                let newCookies = cookies - Number(newPrice)
+                saveLocalCookies(newCookies)
+                saveLocalWorkers(workers)
+                btn.innerHTML = worker.type + ' = ' + newPrice
                 renderWorkersDisplay()
+                checkWorkersAvalible(index)
             } else {
-                console.log('not enough cokie')
-                checkWorkersAvalible()
+                // not enough cokie
+                checkWorkersAvalible(index)
             }
         })
+
         btn.className = 'workersBtn'
-        btn.innerHTML = worker.type
+
         buttonsWrapper.appendChild(btn)
     }
 
 })
+
 
 function totalAdsPerSecond() {
     let arr = [];
@@ -100,7 +118,7 @@ function totalAdsPerSecond() {
     return sum
 }
 
-function checkWorkersAvalible() {
+function checkWorkersAvalible(index) {
     let cookies = localStorage.getItem('cookie')
 
     document.querySelectorAll('.workersBtn').forEach((btn, index) => {
@@ -114,6 +132,4 @@ function checkWorkersAvalible() {
     })
 }
 
-
-
-export { workers, totalAdsPerSecond, getCookiesGiveTotal, checkWorkersAvalible };
+export { totalAdsPerSecond, getCookiesGiveTotal, checkWorkersAvalible };
