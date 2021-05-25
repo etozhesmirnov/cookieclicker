@@ -27,12 +27,14 @@ main {
 .big-cookie {
     width: 250px;
     margin: 0 auto;
-    height: 250px;
+    height: 250px !important;
     background: none;
     background-repeat: no-repeat;
     background-position: center;
     background-size: 100%;
     background-image: url(./img/bigCookie.png);
+    background-color: unset !important;
+    margin-bottom: unset !important;
 }
 .big-cookie:hover {
     height: 255px;
@@ -42,4 +44,11 @@ main {
 .newGame {
     position: fixed;
     bottom: 0;
+}
+
+.workersBtn {
+    height: 50px;
+    background-color: rgba(80, 79, 79, 0.13);
+    margin-bottom: 15px;
+    color: white;
 }
